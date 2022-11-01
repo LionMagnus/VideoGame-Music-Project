@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+
+<h1>VideoGame Music Fest</h1>
+
+<h2>Before adding, please ensure that the track is not already listed</h2>
+
+<h1>Add your music track</h1>
+
+<section id="addMusicForm">
+<form action="/musics" method="POST" >
+  <label>Game Title:</label>
+  <select name="title" id="inputGameTitle">
+    <option value=""></option>
+   
+  </select>
+  <label>Track Title:</label>
+  <input type="text" name="tracktitle">
+  <div>
+    <input class="submitBtn" type="submit" value="Add Music Track">
+</div>
+</form>
+</section>
+
+<%- include('../partials/footer') %>

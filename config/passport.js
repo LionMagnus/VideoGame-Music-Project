@@ -10,7 +10,6 @@ passport.use(new GoogleStrategy(
     callbackURL: process.env.GOOGLE_CALLBACK
   },
   // The verify callback function
-  // Let's use async/await!
   async function(accessToken, refreshToken, profile, cb) {
         // When using async/await to consume promises,
     // there is no use of .then or .catch, so we

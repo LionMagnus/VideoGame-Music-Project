@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+
+<h1>All Games</h1>
+
+<table id="gameList">
+  <!-- <caption>List of all Games currently indexed by the site. Don't see your favorite? Add it from the link at the top!</caption> -->
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Genre</th>
+        <th>VIEW</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% games.forEach(function(g) { %>
+        <tr>
+          <td><%= g.title %></td>
+          <td><%= g.genre %></td>
+          <td><a href="/games/<%= g._id %>">VIEW</a></td>
+        </tr>
+        <% }); %>
+    </tbody>
+</table>
+
+<%- include('../partials/footer') %>

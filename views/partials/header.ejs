@@ -8,5 +8,23 @@
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
-  <nav><a href="/">Home</a></nav>
-  <h1><%= title %></h1>
+  <nav>
+      <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Toicon-icon-fandom-game.svg/2048px-Toicon-icon-fandom-game.svg.png">
+    
+      <button><a href="/"	<%- title === 'HOME' ? 'class="active"' : '' %>>HOME</a></button>
+
+      <button><a href="/games" <%- title === 'All GAMES' ? 'class="active"' : '' %>>ALL GAMES</a>
+        
+    <% if (user) { %> </button>
+     
+      <button><a href="/games/new" <%- title === 'Add Game' ? 'class="active"' : '' %>>ADD GAME</a>  </button>
+
+      <button class='loginoutBtn'><a href="/logout">LOG OUT</a> </button>
+
+    <% } else { %>
+
+      <button class='loginoutBtn'> <a href="/auth/google" <%- title === 'Log in' ? 'class="active"' : '' %>>LOG IN</a> </button>
+  
+    <% } %>
+  </nav>
+  <main>

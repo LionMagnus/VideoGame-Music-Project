@@ -1,0 +1,9 @@
+
+
+
+<div class="caption"><%= s.caption %></div>
+
+<!-- Delete Comment -->
+<form action="/comments/<%= comment._id %>?_method=DELETE" method="POST">
+    <button type="submit">DELETE COMMENT</button>
+</form>
