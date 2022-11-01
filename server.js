@@ -18,6 +18,9 @@ var indexRouter = require('./routes/index');
 var gamesRouter = require('./routes/games');
 var musicsRouter = require('./routes/musics');
 var commentsRouter = require('./routes/comments');
+const games = require('./controllers/games');
+const musics = require('./controllers/musics');
+const comments = require('./controllers/comments');
 
 var app = express();
 
@@ -31,7 +34,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(methodOverride('_method'));
 
 app.use(session({
   secret: process.env.SECRET,
@@ -48,7 +50,9 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/games', gamesRouter);
+app.use('/', musicsRouter);
+app.use('/', commentsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

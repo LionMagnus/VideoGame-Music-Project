@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-const isLoggedIn = require('../config/auth');
+const ensureLoggedIn = require('../config/ensureLoggedIn');
 const musicsCtrl = require('../controllers/musics');
 
-router.get('/musics/new', isLoggedIn, musicsCtrl.new);
-router.post('/games/:id/musics', isLoggedIn, musicsCtrl.create);
-router.put('/musics/:id', isLoggedIn, musicsCtrl.update);
-router.delete('/musics/:id', isLoggedIn, musicsCtrl.delete);
+router.get('/games/:id/musics/new', ensureLoggedIn, musicsCtrl.new);
+router.get('/musics/:id', musicsCtrl.show);
+router.post('/games/:id/musics', ensureLoggedIn, musicsCtrl.create);
+router.delete('/games/:id/musics/:id', ensureLoggedIn, musicsCtrl.delete);
 
 module.exports = router;

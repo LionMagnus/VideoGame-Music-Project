@@ -1,12 +1,12 @@
-@import url('//fonts.cdnfonts.com/css/gotham-pro');
+@import url('http://fonts.cdnfonts.com/css/christmas-cheer');
 
 body
 {
-  background-color: #292E34;
-  color: whitesmoke;
+  color: rgb(255, 255, 255);
   margin: 1em;
-  font-family: 'Gotham Pro', sans-serif;
-  font-family: 'Gotham Pro Medium', sans-serif; 
+  font-family: 'Christmas Cheer', sans-serif;
+  background-image:url(https://cdn.wallpapersafari.com/92/62/kVSwBY.png);
+  background-size: cover;
 }
 
 button {
@@ -23,12 +23,8 @@ button {
   margin: 1vh;
 }
 
-h1:hover {
+h1 {
   color: #FE2C55;
-}
-
-h2:hover {
-  color: cyan;
 }
 
 h1, h2, h3, h4, h5 {
@@ -36,13 +32,13 @@ h1, h2, h3, h4, h5 {
 }
 
 nav button {
-  font-size: 3vh;
-  border: 1px solid cyan;
+  font-size: 2.5vh;
+  border: 1px solid rgb(223, 7, 212);
   border-radius: 5px;
 }
 
 nav img {
-  width: 6vh;
+  width: 7vh;
   vertical-align: middle;
   margin-right: 1vh;
 }
@@ -52,26 +48,16 @@ nav img {
   right: 30px;
 }
 
-
 a {
-  color: whitesmoke;
+  color: rgb(255, 255, 255);
 }
 
 nav a {
-  color: black;
+  color: rgb(0, 0, 0);
 }
-
-nav a:visited {
-  color: black;
-}
-
-a:visited {
-  color: whitesmoke;
-}
-
 
 a:hover {
-  color: cyan;
+  color: rgb(223, 7, 212);
 }
 
 #addGameForm {
@@ -87,14 +73,6 @@ li {
   line-height: 1.2;
 }
 
-.darktext {
-  color: #292E34;
-}
-
-.lighttext {
-  color: #25f4ee;
-}
-
 .musicSection {
   display: flex;
   justify-content: center;
@@ -103,21 +81,10 @@ li {
   border: 5px white solid;
 }
 
-textarea {
-  border:solid cyan 1px;
-  width: 250px;
-  padding: 10px;
-  margin-bottom: 1px;
-}
-
 #music-user{
   height: 15px;
   width: auto;
   margin-right: 5px;
-}
-
-caption {
-  padding: 5px;
 }
 
 thead {
@@ -127,25 +94,13 @@ thead {
 
 table {
   width: 90%;
-  text-align: left;
+  text-align: center;
   font-size: 3vh;
-  padding-left: 15vh;
 }
 
 th, td {
+  display:flexbox;
   padding: 0.6vh;
-}
-
-td:hover {
-  color: cyan;
-}
-
-details, details form { 
-  margin: 1vh;
-}
-
-details a {
-  color: cyan !important;
 }
 
 footer {
@@ -155,4 +110,15 @@ footer {
   width: 100%;
   text-align: center;
   line-height: 0.5;
-  }
+}
+
+#uploadButton {
+  margin-top: 5vh;
+  text-align: center;
+}
+
+iframe {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}

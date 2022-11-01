@@ -4,7 +4,7 @@ const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'VideoGame Music Fest' });
 });
 
 router.get('/auth/google', passport.authenticate(
@@ -22,15 +22,15 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/musics',
-    failureRedirect: '/musics'
+    successRedirect: '/',
+    failureRedirect: '/error'
   }
 ));
 
 // OAuth logout route
 router.get('/logout', function(req, res){
   req.logout(function() {
-    res.redirect('/musics');
+    res.redirect('/');
   });
 });
 

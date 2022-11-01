@@ -3,7 +3,6 @@
 <h1>All Games</h1>
 
 <table id="gameList">
-  <!-- <caption>List of all Games currently indexed by the site. Don't see your favorite? Add it from the link at the top!</caption> -->
     <thead>
       <tr>
         <th>Title</th>
@@ -18,7 +17,7 @@
           <td><%= g.genre %></td>
           <td><a href="/games/<%= g._id %>">VIEW</a></td>
         </tr>
-        <% }); %>
+      <% }); %>
     </tbody>
 </table>
 

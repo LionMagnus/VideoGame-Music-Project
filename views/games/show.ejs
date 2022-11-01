@@ -1,55 +1,39 @@
 <%- include('../partials/header') %>
-<br><br>
-  <h1>Title: <%= game.title %></h1>
-  <h1>Genre: <%= game.genre %></h1>
+<br>
+  <h1><%= game.title %></h1>
+<br>
+
+<h2>Musics</h2>
 
 <br>
 
-<section class="musicSection">
-<% if (game.music.length) { %>
-    <% game.music.forEach(function(s) { %>
-      <div id="MDiv">
-      <img id="music-user" src="<%= s.userAvatar %>"><%= s.userName %>
-       <%= s.createdAt.toLocaleDateString() %>
-        
-      </div>
-        <div class="editDelBtnDiv">
-          <% if (user && user._id.equals(s.user)) { %>
-            
-            <% if (s.user.equals(user._id)) { %>
-              <button type="submit" onclick="window.location.href='/musics/<%= s._id %>/edit';">Edit</button>
-            <% } %>
-            
-            <form action="/musics/<%= s._id %>?_method=DELETE" method="POST">
-              <button type="submit">Delete</button>
-            </form>
-
-            <br>
-          <% } %>
-        </div>
-      </div>
-      <% }); %>
-
-  <% } else { %>
+<% if (musics.length) { %>
+    <table id="musicList">
+        <thead>
+            <tr>
+              <th>Title</th>
+              <th>Uploaded By</th>
+              <th>Upload Date</th>
+              <th>VIEW</th>
+            </tr>
+          </thead>
+        <tbody>
+        <% musics.forEach(function(s) { %>
+            <tr>
+                <td><%= s.title %></td>
+                <td><%= s.userName %></td>
+                <td><%= s.createdAt.toLocaleDateString() %></td>
+                <td><a href="/musics/<%= s._id %>">VIEW</a></td>
+            </tr>
+        <% }); %>
+        </tbody>
+    </table>
+<% } else { %>
     <h3>No musics Yet :( <br> Be the first to add one!</h3>
-  <% } %>
-</section>
+<% } %>
 
 <% if (user) { %>
-  <details>
-    <summary>Want to upload? Click here!</summary>
-  <p>To share a music track, link your track here via youtube link and add a caption! <br></p>
-  
-  <form id="add-music-form" method="POST" action="/games/<%= game._id %>/musics">
-    <label>IMG Link:</label>
-    <textarea rows="1" cols="50" name="photoUrl"></textarea> <br>
-    <label>Caption:</label>
-    <textarea rows= "4" cols="50" name="caption" class="caption"></textarea>
-    <br><br>
-    <input class="submitBtn" type="submit" value="Add music">
-    <br><br>
-  </form>
-</details>
+    <div id="uploadButton"><a href="/games/<%= game._id %>/musics/new">Want to upload? Click here!</a></div>
 <% } %>
 
  </main>
