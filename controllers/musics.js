@@ -36,6 +36,7 @@ function create(req, res) {
     req.body.userName = req.user.name;
     req.body.userAvatar = req.user.avatar;
     req.body.musicUrl = embeddedUrl;
+    const gameId = req.params.id
     Music.create(req.body, function (err, music) {
       res.redirect(`/games/${req.params.id}`);
     });
@@ -45,16 +46,12 @@ function create(req, res) {
 }
 
 function deleteMusic(req, res) {
-  Music.findOne({
-    'musics._id': req.params.id,
-    'musics.user': req.user._id
-  }).then(function (music) {
-    if (!music) return res.redirect(`/games/${req.params.id}`);
-    music.remove(req.params.id);
-    music.save().then(function () {
-      res.redirect(`/games/${req.params.id}`);
-    }).catch(function (err) {
-      return next(err);
-    });
-  });
+  Music.findOneAndDelete(
+    // Ensue that the music was created by the logged in user
+    {
+      _id:req.params.id, user: req.user._id}, function(err,music) {
+      // Deleted music, so must redirect to the game/:id
+      res.redirect(`/games/${req.params.gameId}`);
+    }
+  );
 }

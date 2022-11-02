@@ -24,6 +24,14 @@
                 <td><%= s.userName %></td>
                 <td><%= s.createdAt.toLocaleDateString() %></td>
                 <td><a href="/musics/<%= s._id %>">VIEW</a></td>
+                <td>
+                    <% if (user?._id.equals(s.user)) { %>
+                        <form id="delete-music-form" method="POST"
+                        action="/games/<%= game._id %>/musics/<%= s._id %>?_method=DELETE">
+                        <button>X</button>
+                        </form>
+                    <% } %>
+                </td>
             </tr>
         <% }); %>
         </tbody>

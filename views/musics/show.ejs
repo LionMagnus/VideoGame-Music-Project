@@ -7,7 +7,6 @@
 
 <br>
 <h2>Comments</h2>
-<!-- Comment -->
 <% if (user) { %>
     <form id="add-comment-form" method="POST"
     action="/musics/<%= music._id %>/comments">
@@ -34,9 +33,10 @@
                 <td><%= m.content %></td>
                 <td>
                     <% if (user?._id.equals(m.user)) { %>
-                      <form action="/comments/<%= m._id %>?_method=DELETE" method="POST">
-                        <button type="submit">Delete</button>
-                      </form>
+                        <form id="delete-comment-form" method="POST"
+                        action="/musics/<%= music._id %>/comments/<%= m._id %>?_method=DELETE">
+                        <button>X</button>
+                        </form>
                     <% } %>
                 </td>
               </tr>

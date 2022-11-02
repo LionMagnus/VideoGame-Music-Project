@@ -7,6 +7,6 @@ const musicsCtrl = require('../controllers/musics');
 router.get('/games/:id/musics/new', ensureLoggedIn, musicsCtrl.new);
 router.get('/musics/:id', musicsCtrl.show);
 router.post('/games/:id/musics', ensureLoggedIn, musicsCtrl.create);
-router.delete('/musics/:id', ensureLoggedIn, musicsCtrl.delete);
+router.delete('/games/:gameId/musics/:id', ensureLoggedIn, musicsCtrl.delete);
 
 module.exports = router;
