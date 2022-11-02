@@ -22,10 +22,11 @@ function deleteComment(req, res, next) {
 
 function create(req, res) {
   Music.findById(req.params.id, function(err, music) {
-    req.body.userId = req.user._id;
+    req.body.user = req.user._id;
     req.body.userName = req.user.name;
     req.body.userAvatar = req.user.avatar;
     music.comments.push(req.body);
+    console.log(req.body);
     music.save(function(err) {
       res.redirect(`/musics/${music._id}`);
     });

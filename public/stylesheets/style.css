@@ -1,10 +1,10 @@
-@import url('//fonts.cdnfonts.com/css/christmas-cheer');
+@import url('//fonts.cdnfonts.com/css/iciel-gotham');
 
 body
 {
   color: rgb(255, 255, 255);
   margin: 1em;
-  font-family: 'Christmas Cheer', sans-serif;
+  font-family: 'iCiel Gotham', sans-serif;
   background-image:url(https://cdn.wallpapersafari.com/92/62/kVSwBY.png);
   background-size: cover;
 }
