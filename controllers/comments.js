@@ -25,11 +25,8 @@ function create(req, res) {
     req.body.userId = req.user._id;
     req.body.userName = req.user.name;
     req.body.userAvatar = req.user.avatar;
-    // We push an object with the data for the
-    // comment subdoc into Mongoose arrays
     music.comments.push(req.body);
     music.save(function(err) {
-      // Step 5: Respond with a redirect because we've mutated data
       res.redirect(`/musics/${music._id}`);
     });
   });
