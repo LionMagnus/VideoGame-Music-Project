@@ -43,6 +43,11 @@ nav img {
   margin-right: 1vh;
 }
 
+#portrait {
+  border-radius: 50%;
+  max-width: 3vh;
+}
+
 .loginoutBtn {
   position: absolute;
   right: 30px;
@@ -64,6 +69,11 @@ a:hover {
   text-align: center;
 }
 
+#add-comment-form {
+  padding: 5px;
+  text-align: center;
+}
+
 ul, ol {
   font-size: 2vh;
   text-align: center;
@@ -73,23 +83,8 @@ li {
   line-height: 1.2;
 }
 
-.musicSection {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  
-  border: 5px white solid;
-}
-
-#music-user{
-  height: 15px;
-  width: auto;
-  margin-right: 5px;
-}
-
 thead {
   color: #FE2C55;
-  
 }
 
 table {
@@ -103,6 +98,15 @@ th, td {
   padding: 0.6vh;
 }
 
+#commentBox {
+  font-size: 2vh;
+}
+
+#uploadButton {
+  margin-top:2vh;
+  text-align: center;
+}
+
 footer {
   position:fixed;
   left: 0;
@@ -110,11 +114,6 @@ footer {
   width: 100%;
   text-align: center;
   line-height: 0.5;
-}
-
-#uploadButton {
-  margin-top: 5vh;
-  text-align: center;
 }
 
 iframe {

@@ -5,9 +5,20 @@
 
 <iframe width="1280" height="720" src= <%= music.musicUrl %> allowfullscreen></iframe>
 
+<br>
+<h2>Comments</h2>
 <!-- Comment -->
+<% if (user) { %>
+    <form id="add-comment-form" method="POST"
+    action="/musics/<%= music._id %>/comments">
+    <label>Comment:</label>
+    <textarea name="content" rows="4" cols="50"></textarea>
+    <input type="submit" value="Add comment">
+    </form>
+<% } %>
+
 <% if (music.comments.length) { %>
-    <table>
+    <table id="commentBox">
         <thead>
           <tr>
             <th>User</th>
@@ -18,15 +29,15 @@
         <tbody>
             <% music.comments.forEach(function(m) { %>
               <tr>
-                <td class="comment-user"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer"> <%= m.userName %></td>
+                <td class="comment-user"><img id="portrait" alt="avatar" src="<%= m.userAvatar %>" referrerpolicy="no-referrer"> <%= m.userName %></td>
                 <td><%= m.createdAt.toLocaleDateString() %></td>
                 <td><%= m.content %></td>
                 <td>
-                  <% if (user?._id.equals(m.user)) { %>
-                    <form action="/comments/<%= m._id %>?_method=DELETE" method="POST">
-                      <button type="submit">X</button>
-                    </form>
-                  <% } %>
+                    <% if (user?._id.equals(m.user)) { %>
+                      <form action="/comments/<%= m._id %>?_method=DELETE" method="POST">
+                        <button type="submit">Delete</button>
+                      </form>
+                    <% } %>
                 </td>
               </tr>
             <% }); %>
@@ -36,4 +47,5 @@
     <h5>No Comments Yet</h5>
 <% } %>
 
+<br><br><br><br><br>
 <%- include('../partials/footer') %>
