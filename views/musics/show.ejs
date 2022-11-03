@@ -42,11 +42,13 @@
 
                 <% if (user?._id.equals(m.user)) { %>
                   <td>
-                    <button type="submit" onclick="window.location.href='/comments/<%= m._id %>/edit';">Edit</button>
+                    <a href="/comments/<%= m._id %>/edit">
+                      <button>Edit</button>
+                    </a>
                   </td>
                   <td>
                     <form id="delete-comment-form" method="POST"
-                      action="/musics/<%= music._id %>/comments/<%= m._id %>?_method=DELETE">
+                      action="/comments/<%= m._id %>?_method=DELETE">
                       <button>X</button>
                     </form>
                   </td>
