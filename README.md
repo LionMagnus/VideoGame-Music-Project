@@ -16,7 +16,7 @@
 
 ## :pencil: Descriptioin
 
-This is the second project in Software Engineer Immersive program at General Assembly. The goal is to develop a fullstack web application. 
+This is the second project in Software Engineer Immersive program at General Assembly. The goal is to develop a fullstack web application. Videogame Music Fest is a simple web-app where any user can share their favorite video game soundtracks via youtube link, whether it's a fan cover, official youtube video, remixes, concert performance, etc. Listen and comment on other people's uploads, and let's all enjoy beautiful musics from our favorite video games!
 
 </div>
 
