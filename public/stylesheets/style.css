@@ -43,6 +43,11 @@ nav img {
   margin-right: 1vh;
 }
 
+#addGameForm, #addMusicForm {
+  padding-top: 1vh;
+  text-align: center;
+}
+
 #portrait {
   border-radius: 50%;
   max-width: 3vh;
@@ -63,10 +68,6 @@ nav a {
 
 a:hover {
   color: rgb(223, 7, 212);
-}
-
-#addGameForm {
-  text-align: center;
 }
 
 #add-comment-form, #edit-comment-form {
