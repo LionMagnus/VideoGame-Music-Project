@@ -1,51 +1,64 @@
 <%- include('../partials/header') %>
-<br>
-  <h1><%= music.title %></h1>
-<br>
+  <br>
+  <h1>
+    <%= music.title %>
+  </h1>
+  <br>
 
-<iframe width="1280" height="720" src= <%= music.musicUrl %> allowfullscreen></iframe>
+  <iframe width="1280" height="720" src=<%=music.musicUrl %> allowfullscreen></iframe>
 
-<br>
-<h2>Comments</h2>
-<% if (user) { %>
-    <form id="add-comment-form" method="POST"
-    action="/musics/<%= music._id %>/comments">
-    <label>Comment:</label>
-    <textarea name="content" rows="4" cols="50"></textarea>
-    <input type="submit" value="Add comment">
+  <br>
+  <h2>Comments</h2>
+  <% if (user) { %>
+    <form id="add-comment-form" method="POST" action="/musics/<%= music._id %>/comments">
+      <label>Comment:</label>
+      <textarea name="content" rows="4" cols="50"></textarea>
+      <input type="submit" value="Add comment">
     </form>
-<% } %>
+    <% } %>
 
-<% if (music.comments.length) { %>
-    <table id="commentBox">
-        <thead>
-          <tr>
-            <th>User</th>
-            <th>Date</th>
-            <th>Comment</th>
-          </tr>
-        </thead>
-        <tbody>
+      <% if (music.comments.length) { %>
+        <table id="commentBox">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Date</th>
+              <th>Comment</th>
+            </tr>
+          </thead>
+          <tbody>
             <% music.comments.forEach(function(m) { %>
               <tr>
-                <td class="comment-user"><img id="portrait" alt="avatar" src="<%= m.userAvatar %>" referrerpolicy="no-referrer"> <%= m.userName %></td>
-                <td><%= m.createdAt.toLocaleDateString() %></td>
-                <td><%= m.content %></td>
-                <td>
-                    <% if (user?._id.equals(m.user)) { %>
-                        <form id="delete-comment-form" method="POST"
-                        action="/musics/<%= music._id %>/comments/<%= m._id %>?_method=DELETE">
-                        <button>X</button>
-                        </form>
-                    <% } %>
+                <td class="comment-user"><img id="portrait" alt="avatar" src="<%= m.userAvatar %>"
+                    referrerpolicy="no-referrer">
+                  <%= m.userName %>
                 </td>
-              </tr>
-            <% }); %>
-        </tbody>
-    </table>
-<% } else { %>
-    <h5>No Comments Yet</h5>
-<% } %>
+                <td>
+                  <%= m.createdAt.toLocaleDateString() %>
+                </td>
+                <td>
+                  <%= m.content %>
+                </td>
 
-<br><br><br><br><br>
-<%- include('../partials/footer') %>
+                <% if (user?._id.equals(m.user)) { %>
+                  <td>
+                    <button type="submit" onclick="window.location.href='/comments/<%= m._id %>/edit';">Edit</button>
+                  </td>
+                  <td>
+                    <form id="delete-comment-form" method="POST"
+                      action="/musics/<%= music._id %>/comments/<%= m._id %>?_method=DELETE">
+                      <button>X</button>
+                    </form>
+                  </td>
+                  <% } %>
+                    </td>
+              </tr>
+              <% }); %>
+          </tbody>
+        </table>
+        <% } else { %>
+          <h5>No Comments Yet</h5>
+          <% } %>
+
+            <br><br><br><br><br>
+            <%- include('../partials/footer') %>

@@ -2,7 +2,9 @@ const Music = require('../models/music');
 
 module.exports = {
   create,
-  delete: deleteComment
+  delete: deleteComment,
+  edit,
+  update
 };
 
 function deleteComment(req, res, next) {
@@ -27,6 +29,32 @@ function create(req, res) {
     req.body.userAvatar = req.user.avatar;
     music.comments.push(req.body);
     console.log(req.body);
+    music.save(function(err) {
+      res.redirect(`/musics/${music._id}`);
+    });
+  });
+}
+
+function edit(req, res){
+  Music.findOne({
+    'comments._id': req.params.id,
+    'comments.user': req.user._id
+  }, function(err, music){
+      if (!music || err) return res.redirect(`/musics/${music._id}`);
+      let comment = music.comments.id(req.params.id);
+      res.render('comments/edit', {title: 'Edit Comment', comment });
+    }
+  )
+}
+
+function update(req, res) {
+  Music.findOne({
+    'comments._id': req.params.id,
+    'comments.user': req.user._id
+  }, function(err, music) {
+    const comment = music.comments.id(req.params.id);
+    if (!comment.user.equals(req.user._id)) return res.redirect(`/musics/${music._id}`);
+    comment.content = req.body.content;
     music.save(function(err) {
       res.redirect(`/musics/${music._id}`);
     });
