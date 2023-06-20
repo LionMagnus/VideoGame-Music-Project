@@ -1,10 +1,11 @@
 <div id="header" align="center">
 
-  <img src="https://www.diggitmagazine.com/sites/default/files/styles/2_1_mobile/public/field/image/video-games-music-rocks.jpg?itok=Rt4frH2D&timestamp=1491915753" width="800" height="400">
+  <img src="https://cdn1.dotesports.com/wp-content/uploads/2020/10/07111340/2019-Grand-Finals-165532-Trophy-Robert-PaulA-768x512.jpg" width="800" height="400">
 
 </div>
 
 <div id="description" align="center">
+
 
 # Videogame Music Fest
 
